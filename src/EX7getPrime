@@ -1,0 +1,37 @@
+//parametresiyle aldığı n sayısına göre n. asal sayıyı veren getPrime
+
+
+function isPrime(val) {
+    if (val % 2 == 0)
+        return val == 2;
+    
+    if (val % 3 == 0)
+        return val == 3;
+
+    if (val % 5 == 0)
+        return val == 5;
+
+    if (val % 7 == 0)
+        return val == 7;
+
+    for (let i = 11; i <= Math.sqrt(val); i += 2) {
+        if (val % i == 0)
+            return false;
+    }
+
+    return true;
+}
+
+function getPrime(n) {
+    let count = 0;
+    let i = 2;
+
+    for (; count < n; i++) {
+        if (isPrime(i))
+            count++
+    }
+
+    return i - 1;
+}
+
+console.log(getPrime(7));
